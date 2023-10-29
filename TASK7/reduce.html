@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+const url = "https://restcountries.com/v3.1/all";
+
+fetch(url)
+.then((response) => response.json())
+.then((data) => {
+    const totalPopulation = data.reduce((acc, country) =>{
+        if (country.population){
+            return acc + country.population;
+        } else {
+            return acc;
+        }
+    }, 0);
+    console.log("Total Population:", totalPopulation);
+})
+.catch((error) => {
+    console.log("Error:", error);
+});
+
+    </script>
+</body>
+</html>

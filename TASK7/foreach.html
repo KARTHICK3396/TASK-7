@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     const url = "https://restcountries.com/v3.1/all";
+     fetch(url)
+     .then((response) => response.json())
+     .then((data) => {
+        data.forEach((country) => {
+        const {name, capital, flag} = country;
+
+        console.log("Country Name: ", name.common);
+        console.log("Capital: ", capital[0]);
+        console.log("Flag: ", flag);
+     });
+
+    })
+    .catch((error) => {
+        console.log("Error: ", error);
+    });
+    </script>
+</body>
+</html>
